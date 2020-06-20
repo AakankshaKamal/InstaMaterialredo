@@ -3,9 +3,9 @@ package io.github.froger.instamaterial.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.DecelerateInterpolator;
@@ -67,7 +67,7 @@ public class UserProfileActivity extends BaseDrawerActivity implements RevealBac
         this.avatarSize = getResources().getDimensionPixelSize(R.dimen.user_profile_avatar_size);
         this.profilePhoto = getString(R.string.user_profile_photo);
 
-        Picasso.with(this)
+        Picasso.get()
                 .load(profilePhoto)
                 .placeholder(R.drawable.img_circle_placeholder)
                 .resize(avatarSize, avatarSize)

@@ -3,7 +3,7 @@ package io.github.froger.instamaterial.ui.adapter;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +58,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 break;
         }
 
-        Picasso.with(context)
+        Picasso.get()
                 .load(R.drawable.ic_launcher)
                 .centerCrop()
                 .resize(avatarSize, avatarSize)

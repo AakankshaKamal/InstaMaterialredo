@@ -1,8 +1,8 @@
 package io.github.froger.instamaterial.ui.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,22 +62,37 @@ public class UserProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     private void bindPhoto(final PhotoViewHolder holder, int position) {
-        Picasso.with(context)
+        Picasso.get()
                 .load(photos.get(position))
                 .resize(cellSize, cellSize)
                 .centerCrop()
-                .into(holder.ivPhoto, new Callback() {
+                .into(holder.ivPhoto, new com.squareup.picasso.Callback() {
                     @Override
                     public void onSuccess() {
                         animatePhoto(holder);
                     }
 
                     @Override
-                    public void onError() {
+                    public void onError(Exception e) {
 
                     }
                 });
         if (lastAnimatedItem < position) lastAnimatedItem = position;
+//        Picasso.get()
+//                .load(imageUrl)
+//                .into(imageView, new com.squareup.picasso.Callback() {
+//                    @Override
+//                    public void onSuccess() {
+//                        //do smth when picture is loaded successfully
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Exception ex) {
+//                        //do smth when there is picture loading error
+//                    }
+//                })
+
     }
 
     private void animatePhoto(PhotoViewHolder viewHolder) {

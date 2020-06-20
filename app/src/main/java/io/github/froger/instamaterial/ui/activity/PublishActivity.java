@@ -75,29 +75,29 @@ public class PublishActivity extends BaseActivity {
         }
     }
 
-    private void loadThumbnailPhoto() {
-        ivPhoto.setScaleX(0);
-        ivPhoto.setScaleY(0);
-        Picasso.with(this)
-                .load(photoUri)
-                .centerCrop()
-                .resize(photoSize, photoSize)
-                .into(ivPhoto, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        ivPhoto.animate()
-                                .scaleX(1.f).scaleY(1.f)
-                                .setInterpolator(new OvershootInterpolator())
-                                .setDuration(400)
-                                .setStartDelay(200)
-                                .start();
-                    }
-
-                    @Override
-                    public void onError() {
-                    }
-                });
-    }
+  private void loadThumbnailPhoto() {
+//        ivPhoto.setScaleX(0);
+//        ivPhoto.setScaleY(0);
+//        Picasso.get()
+//                .load(photoUri)
+//                .centerCrop()
+//                .resize(photoSize, photoSize)
+//                .into(ivPhoto,Callback({
+//                    @Override
+//                    public void onSuccess() {
+//                        ivPhoto.animate()
+//                                .scaleX(1.f).scaleY(1.f)
+//                                .setInterpolator(new OvershootInterpolator())
+//                                .setDuration(400)
+//                                .setStartDelay(200)
+//                                .start();
+//                    }
+//
+//                    @Override
+//                    public void onError() {
+//                    }
+//                });
+  }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
