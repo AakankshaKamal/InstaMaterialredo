@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.github.froger.instamaterial.R;
 import io.github.froger.instamaterial.Utils;
+import io.github.froger.instamaterial.ui.Model.User;
 import io.github.froger.instamaterial.ui.adapter.FeedAdapter;
 import io.github.froger.instamaterial.ui.adapter.FeedItemAnimator;
 import io.github.froger.instamaterial.ui.view.FeedContextMenu;
@@ -39,6 +41,7 @@ public class MainActivity extends BaseDrawerActivity implements FeedAdapter.OnFe
     CoordinatorLayout clContent;
 
     private FeedAdapter feedAdapter;
+    private User user;
 
     private boolean pendingIntroAnimation;
 
@@ -47,6 +50,12 @@ public class MainActivity extends BaseDrawerActivity implements FeedAdapter.OnFe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupFeed();
+        user=(User)getIntent().getSerializableExtra("User");
+        String name;
+        if(user!=null)
+        {
+            Toast.makeText(getApplicationContext(),"WELCOME "+user.getName(),Toast.LENGTH_LONG).show();
+        }
 
         if (savedInstanceState == null) {
             pendingIntroAnimation = true;
